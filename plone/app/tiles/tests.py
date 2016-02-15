@@ -29,7 +29,6 @@ if HAS_DRAFTS:
     from plone.app.drafts.interfaces import TARGET_KEY
 
 
-
 class FunctionalTest(unittest.TestCase):
 
     layer = PLONE_APP_TILES_FUNCTIONAL_TESTING
@@ -226,8 +225,9 @@ class FunctionalTest(unittest.TestCase):
         self.browser.getControl(name='form.button.Create').click()
 
         # Fill in the data and save
-        self.browser.getControl(name='plone.app.tiles.demo.persistent.message')\
-            .value = 'Test message'
+        self.browser.getControl(
+            name='plone.app.tiles.demo.persistent.message'
+        ).value = 'Test message'
         self.browser.getControl(
             name='plone.app.tiles.demo.persistent.counter').value = '1'
         self.browser.getControl(label='Save').click()
@@ -251,8 +251,12 @@ class FunctionalTest(unittest.TestCase):
         self.assertEqual(1, draftAnnotations[annotationsKey]['counter'])
 
         # Edit the tile, still on the add form
-        self.browser.open(baseURL + '/@@edit-tile/plone.app.tiles.demo.persistent/tile-1')  # noqa  # noqa  # noqa  # noqa  # noqa  # noqa  # noqa  # noqa  # noqa
-        self.browser.getControl(name='plone.app.tiles.demo.persistent.message').value = 'New message'  # noqa
+        self.browser.open(
+            baseURL + '/@@edit-tile/plone.app.tiles.demo.persistent/tile-1'
+        )
+        self.browser.getControl(
+            name='plone.app.tiles.demo.persistent.message'
+        ).value = 'New message'
         self.browser.getControl(label='Save').click()
 
         # Verify annotations
@@ -281,8 +285,12 @@ class FunctionalTest(unittest.TestCase):
             ['plone.app.tiles.demo.persistent']
         self.browser.getControl(name='form.button.Create').click()
 
-        self.browser.getControl(name='plone.app.tiles.demo.persistent.message').value = 'Test message'  # noqa
-        self.browser.getControl(name='plone.app.tiles.demo.persistent.counter').value = '1'  # noqa
+        self.browser.getControl(
+            name='plone.app.tiles.demo.persistent.message'
+        ).value = 'Test message'
+        self.browser.getControl(
+            name='plone.app.tiles.demo.persistent.counter'
+        ).value = '1'
         self.browser.getControl(label='Save').click()
 
         # Save the edit form
@@ -332,8 +340,14 @@ class FunctionalTest(unittest.TestCase):
                          len(drafts.getDrafts(SITE_OWNER_NAME, targetKey)))
 
         # Edit the tile
-        self.browser.open(baseURL + '/@@edit-tile/plone.app.tiles.demo.persistent/tile-2')  # noqa
-        self.browser.getControl(name='plone.app.tiles.demo.persisten.message').value = 'Third message'  # noqa
+        self.browser.open(
+            baseURL + '/@@edit-tile/plone.app.tiles.demo.persistent/tile-2'
+        )
+
+        # XXX is the typo below intended?
+        self.browser.getControl(
+            name='plone.app.tiles.demo.persisten.message'
+        ).value = 'Third message'
         self.browser.getControl(label='Save').click()
 
         # A draft should now have been created
@@ -396,7 +410,9 @@ class FunctionalTest(unittest.TestCase):
         draftName = None
 
         # Edit the tile
-        self.browser.open(baseURL + '/@@edit-tile/plone.app.tiles.demo.persistent/tile-2')  # noqa
+        self.browser.open(
+            baseURL + '/@@edit-tile/plone.app.tiles.demo.persistent/tile-2'
+        )
         self.browser.getControl(name='message').value = 'Third message'
         self.browser.getControl(label='Save').click()
 
