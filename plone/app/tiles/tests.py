@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import SITE_OWNER_PASSWORD
-from zExceptions import NotFound
-from plone.testing.z2 import Browser
-from zope.annotation.interfaces import IAnnotations
-from zope.component import getUtility
-import pkg_resources
-
 from plone.app.tiles.demo import TransientTile
 from plone.app.tiles.testing import PLONE_APP_TILES_FUNCTIONAL_TESTING
+from plone.testing.z2 import Browser
 from plone.tiles.data import ANNOTATIONS_KEY_PREFIX
+from zExceptions import NotFound
+from zope.annotation.interfaces import IAnnotations
+from zope.component import getUtility
+
+import pkg_resources
+import re
+import unittest2 as unittest
+import urllib
 
 
 try:
@@ -25,9 +28,6 @@ if HAS_DRAFTS:
     from plone.app.drafts.interfaces import PATH_KEY
     from plone.app.drafts.interfaces import TARGET_KEY
 
-import re
-import unittest2 as unittest
-import urllib
 
 
 class FunctionalTest(unittest.TestCase):

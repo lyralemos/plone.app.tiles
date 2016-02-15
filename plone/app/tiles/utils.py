@@ -8,6 +8,7 @@ from zope.traversing.browser.interfaces import IAbsoluteURL
 
 import urllib
 
+
 try:
     import json
 except ImportError:
