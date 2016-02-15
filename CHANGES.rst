@@ -8,6 +8,8 @@ Changelog
   'Add Tile' permission in ``rolemap.xml``.
   [jensens]
 
+- PEP8, docstyle, isort, et al
+  [jensens]
 
 2.2.0 (2015-09-04)
 ------------------
