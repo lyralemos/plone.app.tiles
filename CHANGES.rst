@@ -17,6 +17,9 @@ Bug fixes:
 - Update trove classifiers
   [petschki]
 
+- Fix for losing images when editing a tile
+  [lyralemos]
+
 
 3.1.2 (2019-04-18)
 ------------------
